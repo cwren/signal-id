@@ -1,6 +1,6 @@
 # user management tools
 
-Uses [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api) to interogate your Signal contacts and group memberships.
+Uses [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api) to interrogate your Signal contacts and group memberships.
 
 This requires you to register the `signal-cli-rest-api` instance as a linked device on whatever account you want to scan (presumably your personal account). This will cause some of your Signal information to be decrypted on your computer. You should only consider doing this on a computer you control and trust.
 
