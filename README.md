@@ -36,7 +36,16 @@ Once the scan is complete you should probably do these things:
 
 ## discussion
 
+The Signal UI does not display a stable identifier for contacts. This presents a challenge for groups attempting to track or identify troublemakers in large group settings. The profile display name can change at will (people often put status information in their profile names). The security number is intentionally designed to be non-durable, and can be intentionally changed by reinstalling the app without a backup (at the cost of losing message history, but not losing contacts or group memberships).
+
+Individual users can tag users by attaching a note or a nickname to the account. These notations will survive changes in the underlying account profile name, phone number, and security number, because they are associated internally with the Account Credential Identifier (ACI), a unique 128-bit number. However, these notations are not shared across users.
+
+These tools report the ACI of the user's contacts and allow the user to search contacts for tags they may have placed in notes or nicknames. The ACI can then be shared to other users to allow them to search for those users in their contacts and groups.
+
+It seems to be the case that the only way to change the ACI is to delete the old account and register with Signal again, but that new account will not be connected to users or groups from the old account.
+
 - ["Understanding every one of Signal’s identifiers"](https://freedom.press/digisec/blog/signal-identifiers/), Freedom of the Press Foundation
+- [What is a safety number and why do I see that it changed?](https://support.signal.org/hc/en-us/articles/360007060632-What-is-a-safety-number-and-why-do-I-see-that-it-changed), Signal.org
 - ["Decrypting messages: Extracting digital evidence from signal desktop for windows"](https://doi.org/10.1016/j.fsidi.2025.301941), Paulino, Negrão, Frade, and Domingues, Forens. Sci. Int. Digit. Investig. vol. 54, 2025
 - ["Signal Infiltrator Check"](https://github.com/schlach/signal-check), schlach
 
