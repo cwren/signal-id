@@ -34,6 +34,12 @@ Once the scan is complete you should probably do these things:
 - `docker stop signal-rest`
 - `rm -rf $HOME/.local/share/signal-rest`
 
+## discussion
+
+- ["Understanding every one of Signal’s identifiers"](https://freedom.press/digisec/blog/signal-identifiers/), Freedom of the Press Foundation
+- ["Decrypting messages: Extracting digital evidence from signal desktop for windows"](https://doi.org/10.1016/j.fsidi.2025.301941), Paulino, Negrão, Frade, and Domingues, Forens. Sci. Int. Digit. Investig. vol. 54, 2025
+- ["Signal Infiltrator Check"](https://github.com/schlach/signal-check), schlach
+
 ## dependencies
 
 relies on the [pysignalclirestapi](https://pypi.org/project/pysignalclirestapi/) package which is authored by the same person who maintains [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api). That package in turn pulls in a handful of other [dependencies](./uv.lock).
