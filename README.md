@@ -1,4 +1,4 @@
-# user management tools
+# signal user management tools
 
 Uses [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api) to interrogate your Signal contacts and group memberships.
 
@@ -6,11 +6,11 @@ This requires you to register the `signal-cli-rest-api` instance as a linked dev
 
 ## list_users
 
-Lists all the known users, preferring UUID (aka ACI), but defaulting to phone number or username if that is all that's avaialble. 
+This script lists all the known users and their identifiers, preferring UUID (aka ACI), but defaulting to phone number or username if that is all that's available. 
 
 ## scan_for_user
 
-This app scans your contacts for a given tag or UUID. If it finds a user with the given UUID, or finds the tag in any of the nickname or notes fields, it will list all the groups where that user is found.
+This script scans your contacts for a given tag or UUID. If it finds a user with the given UUID, or finds the tag in any of the nickname or notes fields, it will list all the groups where that user is found.
 
 ## quick start
 
@@ -24,7 +24,7 @@ Start the REST wrapper around signal-cli:
 
 Register the client as a linked device by scanning the [registration QR code](http://localhost:8080/v1/qrcodelink?device_name=signal-api) in the signal app.
 
-Run the app to scan for people who have "REMOVED" in thier note field:
+Run the app to scan for people who have "REMOVED" in their note field:
 ```
 uv run python scan_for_tag.py --phone +PHONENUMBER --tag REMOVED
 ```
@@ -52,3 +52,5 @@ It seems to be the case that the only way to change the ACI is to delete the old
 ## dependencies
 
 relies on the [pysignalclirestapi](https://pypi.org/project/pysignalclirestapi/) package which is authored by the same person who maintains [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api). That package in turn pulls in a handful of other [dependencies](./uv.lock).
+
+
