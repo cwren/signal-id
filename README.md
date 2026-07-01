@@ -44,6 +44,21 @@ These tools report the ACI of the user's contacts and allow the user to search c
 
 It seems to be the case that the only way to change the ACI is to delete the old account and register with Signal again, but that new account will not be connected to users or groups from the old account.
 
+The tool also supports reporting of and scanning for safety numbers, but this should **only** be used in the short term to facilitate non-technical users reporting a safety number to someone who can run this tool, for the purpose of immediately converting that safety number to a more durable ACI.
+
+### on safety numbers
+
+Safety numbers consist of two halves: one belonging to each user in the pair. It is best to search for the half belonging to the troublemaker. If given a whole security number, the tool will search for *both* halves. Note that if the whole safety number was supplied by a different person, it will identify the *reporter* if they are in the contacts of the person running the tool (which seems very likely). If the troublemaker is *also* in the contacts of the person running the tool: *both* contacts will be listed.
+
+It is possible to manually identify your own safety number half by looking at several contacts and noticing which half is repeated. For example, if I were to see these (fake) safety numbers, I would identify my half as `585929 110251 828362 439608 905353 342841`.  If I then wanted to report bob, I would use the half `490489 958475 210965 436050 372486 162952`.
+
+| user    | safety number |
+| ------- | ------------- |
+| alice   | **585929 110251 828362 439608 905353 342841**   723324 355692 152704 154072 249698 358785 |
+| bob     |   490489 958475 210965 436050 372486 162952   **585929 110251 828362 439608 905353 342841** |
+| charlie |   424052 888338 110759 288944 231924 230592   **585929 110251 828362 439608 905353 342841** |
+
+
 - ["Understanding every one of Signal’s identifiers"](https://freedom.press/digisec/blog/signal-identifiers/), Freedom of the Press Foundation
 - [What is a safety number and why do I see that it changed?](https://support.signal.org/hc/en-us/articles/360007060632-What-is-a-safety-number-and-why-do-I-see-that-it-changed), Signal.org
 - ["Decrypting messages: Extracting digital evidence from signal desktop for windows"](https://doi.org/10.1016/j.fsidi.2025.301941), Paulino, Negrão, Frade, and Domingues, Forens. Sci. Int. Digit. Investig. vol. 54, 2025
