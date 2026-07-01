@@ -26,7 +26,7 @@ Register the client as a linked device by scanning the [registration QR code](ht
 
 Run the app to scan for people who have "REMOVED" in their note field:
 ```
-uv run python scan_for_tag.py --phone +PHONENUMBER --tag REMOVED
+uv run python scan_for_user.py --phone +PHONENUMBER --tag REMOVED
 ```
 
 Once the scan is complete you should probably do these things:
