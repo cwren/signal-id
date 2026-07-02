@@ -34,6 +34,12 @@ Once the scan is complete you should probably do these things:
 - `docker stop signal-rest`
 - `rm -rf $HOME/.local/share/signal-rest`
 
+## ignore groups or accounts
+
+To reduce output noise in the case that a group shouldn't be monitored, or when a group wishes to be monitored but will accept an otherwise flagged account, the tool accepts a configuration file. Run the tool once with the `--create_config` flag. With a text editor you can cause the tool to ignore groups by changing `monitor_group` to `false`. Within each group, you can ignore an account by changing `report` to `false`.
+
+The config file will contain sensitive information, so it should be stored on secure media. Writing config files is off by default for this reason. If a config file exists, it will be updated even without the `--create_config` flag.
+
 ## discussion
 
 The Signal UI does not display a stable identifier for contacts. This presents a challenge for groups attempting to track or identify troublemakers in large group settings. The profile display name can change at will (people often put status information in their profile names). The security number is intentionally designed to be non-durable, and can be intentionally changed by reinstalling the app without a backup (at the cost of losing message history, but not losing contacts or group memberships).

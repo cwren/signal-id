@@ -1,5 +1,56 @@
 from collections import Counter
 
+def cleanup_config(config):
+    if not 'groups' in config:
+        config['groups'] = {}
+    for gid in config['groups']:
+        if 'group_name' not in config['groups'][gid]:
+            config['groups'][gid]['group_name'] = 'Unknown'
+
+        if 'monitor_group' not in config['groups'][gid]:
+            config['groups'][gid]['monitor_group'] = True
+
+        if 'warnings' not in config['groups'][gid]:
+            config['groups'][gid]['warnings'] = {}
+
+        for uuid in config['groups'][gid]['warnings']:
+            if 'display_name' not in config['groups'][gid]['warnings'][uuid]:
+                config['groups'][gid]['warnings'][uuid]['display_name'] = 'Unknown'
+
+            if 'pass' not in config['groups'][gid]['warnings'][uuid]:
+                config['groups'][gid]['warnings'][uuid]['report'] = True
+
+
+def should_monitor_group(config, group):
+    gid = group['internal_id']
+    if gid not in config['groups']:
+        config['groups'][gid] = {
+            'group_name': group['name'],
+            'monitor_group': True,
+            'warnings': {}, 
+        }
+    else:
+        config['groups'][gid]['group_name'] = group['name'] # update group name
+
+    return config['groups'][gid]['monitor_group']
+
+
+def should_report_contact_in_group(config, group, contact):
+    if should_monitor_group(config, group):
+        gid = group['internal_id']
+        uid = contact['uuid']
+        if uid not in config['groups'][gid]['warnings']:
+            config['groups'][gid]['warnings'][uid] = {
+                    'display_name': contact['display_name'],
+                    'report': True
+                }
+        else:
+            config['groups'][gid]['warnings'][uid]['display_name'] = contact['display_name'] # update group name
+        return config['groups'][gid]['warnings'][uid]['report']
+    else:
+        return False
+
+
 def display_name(contact):
     if contact['nickname']['name']:
         return contact['nickname']['name']
