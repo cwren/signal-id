@@ -51,6 +51,15 @@ def should_report_contact_in_group(config, group, contact):
         return False
 
 
+def trim_config(config, directory, groups):
+    valid_gids = [ group['internal_id'] for group in groups ]
+    valid_uids = [ contact['uuid'] for contact in directory.contacts ]
+
+    config['groups'] = { gid: data for gid, data in config['groups'].items() if gid in valid_gids }
+    for gid in config['groups']:
+        config['groups'][gid]['warnings'] = { uid: data for uid, data in config['groups'][gid]['warnings'].items() if uid in valid_uids }
+
+
 def display_name(contact):
     if contact['nickname']['name']:
         return contact['nickname']['name']
